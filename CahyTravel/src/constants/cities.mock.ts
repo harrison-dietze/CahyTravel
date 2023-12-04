@@ -1,0 +1,77 @@
+import { AdjacencyMatrix } from 'src/data-structures/adjacency-matrix.class';
+
+export const cityGraph: AdjacencyMatrix = {
+  feliz: {
+    feliz: null,
+    valeReal: 9,
+    saoSebastiaoDoCai: 23,
+    altoFeliz: 9.5,
+    bomPrincipio: 9,
+    tupandi: null,
+    saoVendelino: null,
+  },
+  valeReal: {
+    feliz: 9,
+    valeReal: null,
+    saoSebastiaoDoCai: null,
+    altoFeliz: 10.8,
+    bomPrincipio: null,
+    tupandi: null,
+    saoVendelino: null,
+  },
+  saoSebastiaoDoCai: {
+    feliz: 23,
+    valeReal: null,
+    saoSebastiaoDoCai: null,
+    altoFeliz: null,
+    bomPrincipio: 12.4,
+    tupandi: null,
+    saoVendelino: null,
+  },
+  altoFeliz: {
+    feliz: 9.5,
+    valeReal: 10.8,
+    saoSebastiaoDoCai: null,
+    altoFeliz: null,
+    bomPrincipio: null,
+    tupandi: null,
+    saoVendelino: 10.2,
+  },
+  bomPrincipio: {
+    feliz: 9,
+    valeReal: null,
+    saoSebastiaoDoCai: 12.4,
+    altoFeliz: null,
+    bomPrincipio: null,
+    tupandi: 9.1,
+    saoVendelino: 15.4,
+  },
+  tupandi: {
+    feliz: null,
+    valeReal: null,
+    saoSebastiaoDoCai: null,
+    altoFeliz: null,
+    bomPrincipio: 9.1,
+    tupandi: null,
+    saoVendelino: null,
+  },
+  saoVendelino: {
+    feliz: null,
+    valeReal: null,
+    saoSebastiaoDoCai: null,
+    altoFeliz: 10.2,
+    bomPrincipio: 15.4,
+    tupandi: null,
+    saoVendelino: null,
+  },
+};
+
+export const cityPositions: { [city: string]: { x: number; y: number } } = {
+  feliz: { x: 95 * 5, y: 70 * 5 },
+  valeReal: { x: 130 * 5, y: 45 * 5 },
+  saoSebastiaoDoCai: { x: 50 * 5, y: 120 * 5 },
+  altoFeliz: { x: 95 * 5, y: 20 * 5 },
+  bomPrincipio: { x: 60 * 5, y: 80 * 5 },
+  tupandi: { x: 20 * 5, y: 70 * 5 },
+  saoVendelino: { x: 55 * 5, y: 20 * 5 },
+};
