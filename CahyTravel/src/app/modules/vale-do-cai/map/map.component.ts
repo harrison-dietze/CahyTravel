@@ -55,23 +55,29 @@ export class MapComponent implements OnInit {
 
   private drawNodes(): void {
     for (let node in this.cityPositions) {
-      this.canvasContext.beginPath();
-      this.canvasContext.arc(
-        this.cityPositions[node].x,
-        this.cityPositions[node].y,
-        15,
-        0,
-        2 * Math.PI
-      );
-      this.canvasContext.fillStyle = 'green';
-      this.canvasContext.fill();
+      setTimeout(() => {
+        for(let divisor: number = 10; divisor> 0; divisor--) {
+          this.canvasContext.beginPath();
+          this.canvasContext.arc(
+            this.cityPositions[node].x / divisor,
+            this.cityPositions[node].y / divisor,
+            15,
+            0,
+            2 * Math.PI
+          );
+          this.canvasContext.fillStyle = 'green';
+          this.canvasContext.fill();
 
-      this.canvasContext.fillStyle = 'black';
-      this.canvasContext.fillText(
-        CITIES[node],
-        this.cityPositions[node].x,
-        this.cityPositions[node].y - 20
-      );
+          this.canvasContext.fillStyle = 'black';
+          this.canvasContext.fillText(
+            CITIES[node],
+            this.cityPositions[node].x / divisor,
+            (this.cityPositions[node].y - 20) / divisor
+          )
+        }}, 20);
+
+
+
     }
   }
 
@@ -88,12 +94,13 @@ export class MapComponent implements OnInit {
           y: this.cityPositions[neighbor].y,
         };
 
-        this.drawEdge(
+        setTimeout(() => this.drawEdge(
           { start: startNodePos, end: endNodePos },
           node,
           neighbor,
           'yellow'
-        );
+        ), 20);
+
       }
     }
   }
@@ -188,8 +195,6 @@ export class MapComponent implements OnInit {
 
         previous = city;
       });
-
-      console.log(previous, node);
 
       this.drawEdge(
         {
